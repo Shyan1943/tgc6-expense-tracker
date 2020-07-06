@@ -1,0 +1,17 @@
+{% extends "layout.template.html" %}
+
+{% block content %}
+<h2>Expenses</h2>
+
+<a href="{{url_for('expense_create_form_process')}}" class="btn btn-primary">New Expenditure</a>
+
+<ul class="list-group mt-3">
+{% for e in expenses %}
+    <li class="list-group-item">
+    <input type="checkbox"/>    
+    {{e.expenditure_name}}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

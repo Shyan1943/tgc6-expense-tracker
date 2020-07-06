@@ -26,7 +26,8 @@ DB_NAME = "pra_expense"
 # START WRITING YOUR CODE
 @app.route("/")
 def home():
-    return "Welcome Home"
+    expenses = client[DB_NAME].expense.find()
+    return render_template("home.template.html", expenses=expenses)
 
 # C
 @app.route("/expense/create")
@@ -46,8 +47,7 @@ def expense_create_form_process():
         "transaction_type" : transaction_type,
         "reconciled" : reconciled
     })
-
-    return "Created"
+    return redirect(url_for("home"))
 
 
 # "magic code" -- boilerplate

@@ -2,6 +2,7 @@
 
 {% block content %}
 <form method="POST">
+    <h2>Create New Expenditure</h2>
     <div>
         <label>Expenditure Name :</label>
         <input type="text" name="expenditure_name" class="form-control"/>
@@ -24,6 +25,7 @@
         <input type="checkbox" name="reconciled"/>
         <label>Reconciled?</label><br>
     </div>
-        <input type="submit">
+        <input type="submit" class="btn btn-primary">
+        <a href="{{url_for('home')}}" class="btn btn-secondary">Back to Home</a>
 </form>
 {% endblock %}
