@@ -18,12 +18,20 @@ client = pymongo.MongoClient(MONGO_URI)
 DB_NAME = "todolist"
 
 # read in the SESSION_KEY variable from the operating system environment
-SESSION_KEY = os.environ.get('SESSION_KEY')
+# SESSION_KEY = os.environ.get('SESSION_KEY')
 
 # set the session key
-app.secret_key = SESSION_KEY
+# app.secret_key = SESSION_KEY
 
 # START WRITING YOUR CODE
+@app.route("/")
+def home():
+    return "Welcome Home"
+
+# C
+@app.route("/expense/create")
+def expense_create_form():
+    return render_template("expense_create_form.template.html")
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':
