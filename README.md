@@ -2,6 +2,8 @@
 
 ## Required Features
 
+**You must create your own .env file**
+
 1. The user must be able enter an expense
 
 2. The data captured for each expense are:
