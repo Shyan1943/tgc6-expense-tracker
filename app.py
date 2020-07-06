@@ -18,10 +18,10 @@ client = pymongo.MongoClient(MONGO_URI)
 DB_NAME = "pra_expense"
 
 # read in the SESSION_KEY variable from the operating system environment
-# SESSION_KEY = os.environ.get('SESSION_KEY')
+SESSION_KEY = os.environ.get('SESSION_KEY')
 
 # set the session key
-# app.secret_key = SESSION_KEY
+app.secret_key = SESSION_KEY
 
 # START WRITING YOUR CODE
 @app.route("/")
@@ -47,6 +47,7 @@ def expense_create_form_process():
         "transaction_type" : transaction_type,
         "reconciled" : reconciled
     })
+    flash(f"New expenditure {expenditure_name} has been created")
     return redirect(url_for("home"))
 
 
